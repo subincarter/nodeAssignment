@@ -1,0 +1,28 @@
+const fs = require('fs');
+
+exports.writeLog = (req, res, next) => {
+    let timestamp = Date.now();
+    console.log(req.originalUrl);
+    fs.readdir("./logs", function (err, files) {
+        if (err) {
+            console.error("Could not list the directory.", err);
+            process.exit(1);
+        }
+        files.sort();
+        files.reverse();
+        const file = files.find(filename => filename < timestamp + ".txt")
+        console.log(file);
+        const userId = (req.user) ? req.user.userID : 0;
+        const logData = {
+            requestMethod: req.method,
+            requestUrl: req.originalUrl,
+            userId: userId,
+            arguments: req.body ?? ''
+        }
+        fs.appendFile('./logs/' + file, "\n" + timestamp + "  - " + JSON.stringify(logData), function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+        });
+    });
+    next();
+}
