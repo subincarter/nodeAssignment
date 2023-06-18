@@ -22,7 +22,7 @@ exports.getFeeds = async (req, res, next) => {
         feeds = await Feeds.findAll({ where: { admin_user_id: req.user.userID } });
     } else {
         if (!req.user.access.includes('read')) {
-           return  res.send({ status: false, message: 'You dont have access to read the feed' });
+            return res.send({ status: false, message: 'You dont have access to read the feed' });
         }
         feeds = await Feeds.findAll({ where: { user_id: req.user.userID } });
     }
@@ -81,11 +81,11 @@ exports.deleteFeed = async (req, res) => {
     if (canDelete) {
         await Feeds.destroy({
             where: { id: id }
-        }).then(c => {
+        }).then(num => {
             if (num == 1) {
-                res.send({ status: true, message: "Feed was deleted successfully!" });
+                return res.send({ status: true, message: "Feed was deleted successfully!" });
             } else {
-                res.send({ status: false, message: `Cannot delete Feed with id=${id}. Maybe feed was not found!` });
+                return res.send({ status: false, message: `Cannot delete Feed with id=${id}. Maybe feed was not found!` });
             }
         }).catch(err => {
             res.status(500).send({ message: "Could not delete Feed with id=" + id });
@@ -106,6 +106,9 @@ exports.feedAllocation = async (req, res, next) => {
     let userRole = '';
     if (req.user.role == 'superadmin') {
         const user = await User.findOne({ where: { id: userID } })
+        if (!user) {
+            return res.send('user not found');
+        }
         userRole = user.role;
     } else if (req.user.role === 'admin' && req.user.access.includes("allocate")) {
         const getFeedById = await Feeds.findOne({ where: { id: feedID } })
@@ -113,17 +116,17 @@ exports.feedAllocation = async (req, res, next) => {
             return res.send({ status: false, message: `You dont have accees to feed  =${feedID}. Access denied!` });
         }
     } else if (req.user.role === 'user') {
-       return res.send({ status: false, message: `Access denied! user dont have access to allocate feeds` });
-    }else{
+        return res.send({ status: false, message: `Access denied! user dont have access to allocate feeds` });
+    } else {
         return res.send({ status: false, message: `Access denied! user dont have access to allocate feeds` });
     }
     if (userRole == 'admin') {
         await Feeds.update({ admin_user_id: userID }, { where: { id: feedID } })
             .then((num) => {
                 if (num == 1) {
-                   return res.send({ status: true, message: 'allocated' });
+                    return res.send({ status: true, message: 'allocated' });
                 }
-               return res.send({ status: false, message: 'feed not found ! or may be feed already allocated' });
+                return res.send({ status: false, message: 'feed not found ! or may be feed already allocated' });
             })
             .catch(err => {
                 console.log(err);
@@ -133,7 +136,7 @@ exports.feedAllocation = async (req, res, next) => {
         await Feeds.update({ user_id: userID }, { where: { id: feedID } })
             .then((num) => {
                 if (num == 1) {
-                    return   res.send({ status: true, message: 'allocated' });
+                    return res.send({ status: true, message: 'allocated' });
                 }
                 return res.send({ status: false, message: 'feed not found ! or may be feed already allocated' });
             })
