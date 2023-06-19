@@ -1,0 +1,3 @@
+
+1687104400538  - {"requestMethod":"POST","requestUrl":"/createUser","userId":2,"arguments":{"name":"user","role":"admin","access":{"access":["read","delete","allocate"]},"email":"admin2@gmail.com","password":"user"}}
+1687104417244  - {"requestMethod":"POST","requestUrl":"/createUser","userId":2,"arguments":{"name":"user","role":"user","access":{"access":["read","delete","allocate"]},"email":"admin2@gmail.com","password":"user"}}
