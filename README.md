@@ -2,6 +2,8 @@
 
 **how to run the project :**
 
+Note  : please send jwt token in the header with every routes
+
 Step 1 : run "npm install" to install all the packages.
 
 Step 2 : create a mysql database with name "nodeassignment". and import the db.
