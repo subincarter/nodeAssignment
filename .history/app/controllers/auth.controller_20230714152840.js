@@ -140,15 +140,15 @@ exports.superUser = async(req,res)=>{
         email: 'superadmin@gmail.com',
     };
    
-        users.password = await bcrypt.hash('superadmin', 10);
-        await db.sequelize.sync()
+        users.password = bcrypt.hash('superadmin', 10);
+         db.sequelize.sync()
             .then(async () => {
-                const superUserExists =await Users.count({ where: { role: 'superadmin' } })
+                const superUserExists = Users.count({ where: { role: 'superadmin' } })
                     .then(count => {
                         return (count > 0) ? true : false
                     });
                 if (!superUserExists) {
-                    await Users.create(users)
+                     Users.create(users)
                         .then(data => {
                             res.send(data);
                         })

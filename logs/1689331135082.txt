@@ -1,0 +1,5 @@
+
+1689331334824  - {"requestMethod":"POST","requestUrl":"/updateAccess","userId":11,"arguments":{"userID":6,"access":{"access":["read","create","allocate","update"]}}}
+1689331355642  - {"requestMethod":"POST","requestUrl":"/login","userId":0,"arguments":{"username":"admin","password":"admin"}}
+1689331373531  - {"requestMethod":"POST","requestUrl":"/createUser","userId":6,"arguments":{"name":"admin","role":"admin","access":{"access":["read"]},"email":"admin@gmail.com","password":"admin"}}
+1689331410493  - {"requestMethod":"POST","requestUrl":"/createUser","userId":6,"arguments":{"name":"user","role":"user","access":{"access":["read"]},"email":"user@gmail.com","password":"user"}}

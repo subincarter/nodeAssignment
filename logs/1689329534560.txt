@@ -1,0 +1,4 @@
+
+1689329993795  - {"requestMethod":"POST","requestUrl":"/login","userId":0,"arguments":{"username":"superadmin","password":"superadmin"}}
+1689330020115  - {"requestMethod":"POST","requestUrl":"/createUser","userId":0,"arguments":{"name":"user2","role":"user","access":{"access":["read","delete","allocate"]},"email":"admin2@gmail.com","password":"user2"}}
+1689330081153  - {"requestMethod":"POST","requestUrl":"/createUser","userId":5,"arguments":{"name":"admin","role":"admin","access":{"access":["read","delete","allocate"]},"email":"admin@gmail.com","password":"admin"}}

@@ -7,6 +7,7 @@ const db = require('./app/config/db.config');
 const authController = require('./app/controllers/auth.controller');
 const Users = db.user;
 const fs = require('fs');
+const { exit } = require("process");
 
 
 env.config();
@@ -16,7 +17,7 @@ app.use(express.json());
  * initialize the app
  */
 app.get('/', async (req, res) => {
-    res.send('app initialized');
+    res.send('super user created');
 });
 
 /**

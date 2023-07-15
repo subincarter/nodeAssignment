@@ -1,6 +1,0 @@
-
-1687103584850  - {"requestMethod":"GET","requestUrl":"/deleteFeed/2","userId":1,"arguments":{}}
-1687103610796  - {"requestMethod":"POST","requestUrl":"/createFeed/","userId":1,"arguments":{"name":"Feeds 2","url":"fedd2.url.in","description":"222222 cslacalcksalcsa casclsakcsac"}}
-1687103623361  - {"requestMethod":"POST","requestUrl":"/createFeed/","userId":1,"arguments":{"name":"Feeds ","url":"fedd2.url.in","description":" cslacalcksalcsa casclsakcsac"}}
-1687103629795  - {"requestMethod":"GET","requestUrl":"/getFeeds","userId":1,"arguments":{}}
-1687103639163  - {"requestMethod":"GET","requestUrl":"/deleteFeed/3","userId":1,"arguments":{}}

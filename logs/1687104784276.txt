@@ -1,3 +1,0 @@
-
-1687104792571  - {"requestMethod":"POST","requestUrl":"/login","userId":0,"arguments":{"username":"admin","password":"admin"}}
-1687104817456  - {"requestMethod":"POST","requestUrl":"/createUser","userId":2,"arguments":{"name":"user","role":"user","access":{"access":["read","delete","allocate"]},"email":"admin2@gmail.com","password":"user"}}

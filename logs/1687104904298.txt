@@ -1,3 +1,0 @@
-
-1687104905472  - {"requestMethod":"GET","requestUrl":"/getFeeds","userId":2,"arguments":{}}
-1687104958420  - {"requestMethod":"POST","requestUrl":"/feedAllocation","userId":2,"arguments":{"feedID":5,"userID":4}}

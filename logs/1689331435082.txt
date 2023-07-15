@@ -1,0 +1,3 @@
+
+1689331550490  - {"requestMethod":"POST","requestUrl":"/createUser","userId":6,"arguments":{"name":"user","role":"user","access":{"access":["read"]},"email":"user@gmail.com","password":"user"}}
+1689331560416  - {"requestMethod":"POST","requestUrl":"/createUser","userId":6,"arguments":{"name":"user2","role":"user","access":{"access":["read"]},"email":"user@gmail.com","password":"user"}}

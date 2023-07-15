@@ -1,3 +1,0 @@
-
-1687105352981  - {"requestMethod":"POST","requestUrl":"/login","userId":0,"arguments":{"username":"user2","password":"user2"}}
-1687105371733  - {"requestMethod":"GET","requestUrl":"/getFeeds","userId":4,"arguments":{}}

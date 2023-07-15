@@ -7,16 +7,24 @@ const db = require('./app/config/db.config');
 const authController = require('./app/controllers/auth.controller');
 const Users = db.user;
 const fs = require('fs');
+const { exit } = require("process");
 
 
 env.config();
 app.use(express.json());
 
+
+let users = {
+    name: "superadmin",
+    role: "superadmin",
+    access: { access: ["edit", "delete", "read"] },
+    email: 'superadmin@gmail.com',
+};
 /**
  * initialize the app
  */
 app.get('/', async (req, res) => {
-    res.send('app initialized');
+    res.send('super user created');
 });
 
 /**

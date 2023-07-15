@@ -7,16 +7,24 @@ const db = require('./app/config/db.config');
 const authController = require('./app/controllers/auth.controller');
 const Users = db.user;
 const fs = require('fs');
+const { exit } = require("process");
 
 
 env.config();
 app.use(express.json());
 
+
+let users = {
+    name: "superadmin",
+    role: "superadmin",
+    access: { access: ["edit", "delete", "read"] },
+    email: 'superadmin@gmail.com',
+};
 /**
  * initialize the app
  */
 app.get('/', async (req, res) => {
-    res.send('app initialized');
+    res.send('super user created');
 });
 
 /**
@@ -87,7 +95,7 @@ app.listen(port, async() => {
     console.log(the_interval);
 
     /**
-     * delete a log file created before 30 minutes , to change interval modify the delminutes variable .
+     * delete a log file created before 30 minutes , change the minutes varibles value for the interval you want.
      * it will convert to milliseconds 
      */
     var delminutes = 30, the_interval = delminutes * 60 * 1000;
